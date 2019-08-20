@@ -1,3 +1,5 @@
+To run, modify line 90 in main.go to be your own chosen storage directory and type "go run main.go" in the shoreline directory.
+
 Code Overview: 
 Node: node.go
 Tests and runner: main.go
