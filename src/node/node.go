@@ -50,7 +50,8 @@ func (nde *Node) timestamp() {
 
 }
 
-// Function copied from gobyexample.
+// Function copied from gobyexample. Checks an error and panics if
+// error is not nil.
 func check(e error) {
 	if e != nil {
 		panic(e)
@@ -65,7 +66,7 @@ func Make(nodeId int, checkpointGranularity int, storageDir string) Node {
 
 	nde.myStorage = storageDir + strconv.Itoa(nde.nodeId)
 
-	// Create directory is necessary.
+	// Create directory if necessary.
 	if _, err := os.Stat(storageDir); os.IsNotExist(err) {
 		err := os.MkdirAll(storageDir, os.ModePerm)
 		check(err)
