@@ -65,6 +65,12 @@ func Make(nodeId int, checkpointGranularity int, storageDir string) Node {
 
 	nde.myStorage = storageDir + strconv.Itoa(nde.nodeId)
 
+	// Create directory is necessary.
+	if _, err := os.Stat(storageDir); os.IsNotExist(err) {
+		err := os.MkdirAll(storageDir, os.ModePerm)
+		check(err)
+	}
+
 	if _, err := os.Stat(nde.myStorage); os.IsNotExist(err) {
 		// We are starting up for the first time. Persistent storage starts with a 0.
 		f, err := os.Create(nde.myStorage)
