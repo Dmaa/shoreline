@@ -26,4 +26,4 @@ Some cases I tested:
 
 - Verifying correctness with a crash and restart. Logically, since on startup every node reads its persistent storage, a node should take into consideration which IDs it has previously given out before serving new Get_id() requests. (My API requires that nodes are brought up through Make() on startup.) I tested this with the function SimulateCrash().
 
-- Verifying correctness that a single node has unique IDs. Logically, this should be true because nodes increment an internal counter before giving out IDs. I verified this is checkCorrectness(). 
+- Verifying correctness that a single node has unique IDs. Logically, this should be true because nodes increment an internal counter before giving out IDs. I verified this in checkCorrectness(). 
